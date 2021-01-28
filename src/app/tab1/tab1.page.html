@@ -35,7 +35,7 @@
   </ion-slides>
 
   <div *ngIf="segment == 'home'">
-    <app-tweet *ngFor="let tweet of tweets"></app-tweet>
+    <app-tweet *ngFor="let tweet of tweets" [tweet]="tweet"></app-tweet>
   </div>
 
   <div *ngIf="segment == 'content'"></div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tweet',
@@ -6,9 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tweet.component.scss'],
 })
 export class TweetComponent implements OnInit {
+  @Input() tweet: any;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.parseTweet();
+  }
+
+  parseTweet() {
+    this.tweet.text = this.tweet.text.replace(/\#[a-zA-Z]+/g, "\<span class\=\"highlight\"\>$&\<\/span\>");
+    this.tweet.text = this.tweet.text.replace(/\@[a-zA-Z]+/g, "\<span class\=\"highlight\"\>$&\<\/span\>");
+  }
 
 }
