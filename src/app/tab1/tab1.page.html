@@ -16,21 +16,21 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-segment [(ngModel)]="segment" mode="md" #segmentcontrol>
+  <ion-segment-button value="home">
+    <ion-label>Home</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="content">
+    <ion-label>cr-content-suggest</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
 <ion-content
   fullscreen="true"
   scrollEvents="true"
   [appHideHeader]="header"
   [appStickySegment]="segmentcontrol"
 >
-  <ion-segment [(ngModel)]="segment" mode="md" #s>
-    <ion-segment-button value="home">
-      <ion-label>Home</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="content">
-      <ion-label>cr-content-suggest</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-
   <ion-slides [options]="opts">
     <ion-slide *ngFor="let tweet of tweets">
       <ion-avatar>
